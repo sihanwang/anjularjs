@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="../angularjs/angular.js"></Script>
+    <script src="js/Script1.js"></Script>
+</head>
+
+<body ng-app="myModule">
+    <!-- Seems can only be one ng-app -->
+    <div ng-controller="myController">
+        <ul>
+            <li ng-repeat="country in countries" ng-init = "parentIndex=$index">
+                {{country.name}} - Index = {{$index}}
+                <ul>
+                    <li ng-repeat="city in country.cities">
+                        {{city.name}} - Parent Index = {{$parent.$index}}, Index = {{$index}}, or you can use "ng-init" to get parent index {{parentIndex}}
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+</body>
+
+</html>
